@@ -1,26 +1,12 @@
-name: Destroy infra on branch deletion
+name: Branch Deleted
 
-on:
-  push:
-    branches:
-      - "release/**"
-      - "task/**"
-  workflow_call:
+on: delete
 
 jobs:
-  build:
+  delete:
+    if: github.event.ref_type == 'branch'
     runs-on: ubuntu-latest
-
-    environment:
-      name: ${{ github.ref_name }}
-      url: ${{ steps.apply.outputs.a_prime_url }}
-
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./terraform
-
     steps:
-      - name: Group of log lines
+      - name: Clean up
         run: |
-            echo "Destroy!!! Burn!!!"
+          echo "Clean up for branch ${{ github.event.ref }}"
