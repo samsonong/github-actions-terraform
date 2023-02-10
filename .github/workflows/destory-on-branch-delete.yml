@@ -1,0 +1,22 @@
+name: Destroy infra on branch deletion
+
+on:
+  push:
+    branches:
+      - "release/**"
+      - "task/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: ${{ github.ref_name }}
+      url: ${{ steps.apply.outputs.a_prime_url }}
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./service/a-prime/infra-cloud
+
+    steps:
