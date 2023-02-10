@@ -3,6 +3,7 @@ name: Nonprod deploy
 on:
   push:
     branches:
+      - "main"
       - "release/**"
       - "task/**"
     paths:
