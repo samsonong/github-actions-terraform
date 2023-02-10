@@ -19,7 +19,7 @@ provider "google" {
 data "terraform_remote_state" "db_inst" {
     backend = "gcs"
     config = {
-        bucket  = var.db_instance_tfstate_bucket
+        bucket  = "tfstate-nonp"
     }
     workspace = var.infra_namespace == "main" || var.infra_namespace == "pre-main" ? var.infra_namespace : "common-nonprod"
 }

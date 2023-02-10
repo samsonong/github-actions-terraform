@@ -1,4 +1,4 @@
-name: Create infra on branch creation
+name: Nonprod deploy
 
 on:
   push:
