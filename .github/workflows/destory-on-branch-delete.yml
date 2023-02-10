@@ -4,7 +4,8 @@ on: delete
 
 jobs:
   delete:
-    if: (github.ref != "ref/heads/main" && github.ref != "ref/heads/pre-main")
+    if: |
+      (github.head_ref != 'main' && github.head_ref != 'pre-main')
     runs-on: ubuntu-latest
     steps:
       - name: Clean up
