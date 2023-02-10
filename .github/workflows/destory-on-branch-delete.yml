@@ -20,4 +20,6 @@ jobs:
         working-directory: ./service/a-prime/infra-cloud
 
     steps:
-      echo: Destroying branches!
+      - name: Group of log lines
+        run: |
+            echo "Destroy!!! Burn!!!"
