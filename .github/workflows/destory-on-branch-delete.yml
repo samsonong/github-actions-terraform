@@ -20,3 +20,4 @@ jobs:
         working-directory: ./service/a-prime/infra-cloud
 
     steps:
+      echo: Destroying branches!
