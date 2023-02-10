@@ -27,9 +27,3 @@ output "service_location" {
   value       = module.cloud_run.location
   description = "Location in which the Cloud Run service was created"
 }
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
