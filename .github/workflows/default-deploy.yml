@@ -1,6 +1,12 @@
 name: Create infra on branch creation
 
-on: create
+on:
+  push:
+    branches:
+      - "release/**"
+      - "task/**"
+    paths:
+      - .github/workflows/default-deploy.yml
 
 jobs:
   build:
