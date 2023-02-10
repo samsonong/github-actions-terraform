@@ -8,6 +8,7 @@ on:
       - "task/**"
     paths:
       - .github/workflows/default-deploy.yml
+  workflow_call:
 
 jobs:
   build:

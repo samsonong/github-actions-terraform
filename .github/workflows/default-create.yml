@@ -1,6 +1,7 @@
 name: Create ecosystem for a new branch
 
 on: create
+  workflow_call:
 
 jobs:
 
