@@ -2,12 +2,10 @@ name: Branch Deleted
 
 on:
   delete:
-    branches:
-      - '!main'
-      - '!pre-main'
 
 jobs:
   delete:
+    if: github.event.ref == "ref/heads/testing"
     runs-on: ubuntu-latest
     steps:
       - name: Clean up
