@@ -1,9 +1,0 @@
-name: Create ecosystem for a new branch
-
-on: create
-
-jobs:
-
-  default:
-    uses: ./.github/workflows/default-deploy.yml    
-    secrets: inherit
