@@ -3,11 +3,18 @@ name: Branch Deleted
 on: delete
 
 jobs:
-  delete:
-    # if: github.event.ref == 'testing'
+  workflow-trigger:
     runs-on: ubuntu-latest
     steps:
-      - name: My first step
-        run: echo "Clean up for branch ${{ github.event.ref }}"
-      - name: Comparison
-        run: echo "(branch && branch.name == 'testing') is ${{ github.event.ref_type == 'branch' && github.event.ref == 'testing' }}"
+      - name: github.event.ref_type
+        run: echo "github.event.ref_type = ${{ github.event.ref_type }}"
+      - name: github.event.ref
+        run: echo "github.event.ref = ${{ github.event.ref }}"
+      - name: Comparison logic for job "delete"
+        run: echo "(github.event.ref_type == 'branch' && github.event.ref == 'testing')"
+  delete:
+    runs-on: ubuntu-latest
+    if: (github.event.ref_type == 'branch' && github.event.ref == 'testing')
+    steps:
+      - name: Destroying infra
+        run: echo "Destroying infra for ${{ github.event.ref_type }} ${{ github.event.ref }}"
