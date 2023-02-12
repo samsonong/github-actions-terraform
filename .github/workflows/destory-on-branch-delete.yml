@@ -11,10 +11,10 @@ jobs:
       - name: github.event.ref
         run: echo "github.event.ref = ${{ github.event.ref }}"
       - name: Comparison logic for job "delete"
-        run: echo "(github.event.ref_type == 'branch' && github.event.ref == 'testing')"
+        run: echo "(github.event.ref_type == 'branch' && github.event.ref != 'pre-main' && github.event.ref != 'main')"
   delete:
     runs-on: ubuntu-latest
-    if: (github.event.ref_type == 'branch' && github.event.ref == 'testing')
+    if: (github.event.ref_type == 'branch' && github.event.ref != 'pre-main' && github.event.ref != 'main')
     steps:
       - name: Destroying infra
         run: echo "Destroying infra for ${{ github.event.ref_type }} ${{ github.event.ref }}"
