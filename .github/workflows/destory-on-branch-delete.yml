@@ -10,4 +10,4 @@ jobs:
       - name: My first step
         run: echo "Clean up for branch ${{ github.event.ref }}"
       - name: Comparison
-        run: echo "(branch && branch.name == 'testing') is ${{ github.event.ref_type == 'branch' && github.event.ref = 'testing' }}"
+        run: echo "(branch && branch.name == 'testing') is ${{ github.event.ref_type == 'branch' && github.event.ref == 'testing' }}"
