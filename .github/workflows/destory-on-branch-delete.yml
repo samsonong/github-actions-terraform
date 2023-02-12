@@ -1,22 +1,11 @@
 name: Branch Deleted
 
-on:
-  delete:
+on: delete
 
 jobs:
   delete:
-    if: github.event.ref == "ref/heads/testing"
+    if: github.event.ref == 'ref/heads/testing'
     runs-on: ubuntu-latest
     steps:
-      - name: Clean up
-        run: |
-          echo "Clean up for branch ${{ github.event.ref }}"
-
-# jobs:
-#   delete:
-#     if: (github.event.ref != 'main' && github.event.ref != 'pre-main')
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Clean up
-#         run: |
-#           echo "Clean up for branch ${{ github.event.ref }}"
+      - name: My first step
+        run: echo "Clean up for branch ${{ github.event.ref }}"
