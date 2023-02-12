@@ -4,8 +4,7 @@ on: delete
 
 jobs:
   delete:
-    if: github.event.ref == 'ref/heads/testing'
     runs-on: ubuntu-latest
     steps:
       - name: My first step
-        run: echo "Clean up for branch ${{ github.event.ref }}"
+        run: echo "Printing github.event.ref ${{ github.event.ref }}"
