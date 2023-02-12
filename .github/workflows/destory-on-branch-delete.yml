@@ -4,7 +4,10 @@ on: delete
 
 jobs:
   delete:
+    # if: github.event.ref == 'testing'
     runs-on: ubuntu-latest
     steps:
       - name: My first step
-        run: echo "Printing github.event.ref ${{ github.event.ref }}"
+        run: echo "Clean up for branch ${{ github.event.ref }}"
+      - name: Comparison
+        run: echo "(branch && branch.name == 'testing') = ${{ github.event.ref_type == 'branch' && github.event.ref = 'testing' }}"
