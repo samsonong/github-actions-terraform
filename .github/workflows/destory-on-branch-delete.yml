@@ -16,6 +16,8 @@ jobs:
         run: echo "(github.event.ref_type == 'branch' && github.event.ref != 'pre-main' && github.event.ref != 'main')"
       - name: vars.SOME_VARIABLE
         run: echo "vars.SOME_VARIABLE = ${{ vars.SOME_VARIABLE }}"
+      - name: github.ref
+        run: echo "github.ref = ${{ github.ref }}"
   delete:
     runs-on: ubuntu-latest
     if: (github.event.ref_type == 'branch' && github.event.ref != 'pre-main' && github.event.ref != 'main')
