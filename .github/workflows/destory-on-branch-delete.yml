@@ -14,10 +14,8 @@ jobs:
         run: echo "github.event.ref = ${{ github.event.ref }}"
       - name: Comparison logic for job "delete"
         run: echo "(github.event.ref_type == 'branch' && github.event.ref != 'pre-main' && github.event.ref != 'main')"
-      - name: secrets.SOME_SECRET
-        run: echo "secrets.SOME_SECRET = ${{ secrets.SOME_SECRET }}"
-      - name: github.workspace
-        run: echo "github.workspace = ${{ github.workspace }}"
+      - name: vars.SOME_VARIABLE
+        run: echo "vars.SOME_VARIABLE = ${{ vars.SOME_VARIABLE }}"
   delete:
     runs-on: ubuntu-latest
     if: (github.event.ref_type == 'branch' && github.event.ref != 'pre-main' && github.event.ref != 'main')
