@@ -22,15 +22,10 @@ jobs:
       - name: github.ref
         run: echo "github.ref = ${{ github.ref }}"
 
-      - name: BRANCH_NAME=${{ github.event.ref }}
-        run: BRANCH_NAME=${{ github.event.ref }}
-      - name: Observe $BRANCH_NAME
-        run: BRANCH_NAME=$BRANCH_NAME
-
       - name: BRANCH_NAME/\//-
-        run: echo "BRANCH_NAME/\//- = ${$BRANCH_NAME/\//-}"
-      - name: github.event.ref/\//-
-        run: echo "github.event.ref/\//- = ${github.event.ref/\//-}"
+        env:
+          BRANCH_NAME: ${{github.event.ref}}
+        run: echo "BRANCH_NAME/\//- = ${BRANCH_NAME/\//-}"
 
   delete:
     runs-on: ubuntu-latest
