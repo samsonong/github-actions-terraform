@@ -15,8 +15,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: github.event.action
+        run: echo "github.event.action = ${{ github.event.action }}"
       - name: github.event.ref_type
         run: echo "github.event.ref_type = ${{ github.event.ref_type }}"
+      - name: github.ref_name
+        run: echo "github.ref_name = ${{ github.ref_name }}"
       - name: github.event.ref
         run: echo "github.event.ref = ${{ github.event.ref }}"
 
